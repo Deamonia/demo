@@ -79,5 +79,31 @@
         <p>An email confirmation will be sent to you shortly.</p>
         <a href="/" class="back-button">Return to Home</a>
     </div>
+    <script>
+        // Set the countdown time in seconds
+        let countdownTime = 3;
+
+        // Function to update the countdown text
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = `This page will close in ${countdownTime} second${countdownTime !== 1 ? 's' : ''}.`;
+            
+            if (countdownTime > 0) {
+                countdownTime--;
+                setTimeout(updateCountdown, 1000);
+            } else {
+                // Close the window after countdown reaches 0
+                window.close();
+                
+                // If window.close() doesn't work (e.g., in some browsers), redirect to the previous page
+                setTimeout(() => {
+                    window.history.back();
+                }, 500);
+            }
+        }
+
+        // Start the countdown when the page loads
+        window.onload = updateCountdown;
+    </script>
 </body>
 </html>
