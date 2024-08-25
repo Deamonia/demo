@@ -85,8 +85,6 @@
 
         // Function to update the countdown text
         function updateCountdown() {
-            const countdownElement = document.getElementById('countdown');
-            countdownElement.textContent = `This page will close in ${countdownTime} second${countdownTime !== 1 ? 's' : ''}.`;
             
             if (countdownTime > 0) {
                 countdownTime--;
